@@ -14,6 +14,11 @@ class Ogre < Formula
         sha1 '75f173994b25a22eeb3b782cdf17222b336b44f6'
     end
 
+    def patches
+        # Avoid calling install_name_tool on Ogre.framework
+        "https://gist.github.com/corristo/7867361/raw/9fe11e442a5b6a5a529ac39bbffa8b48317ac24a/no-framework-install-name.diff"
+    end
+
     def install
 
         resource('dependencies').stage do
@@ -37,7 +42,5 @@ class Ogre < Formula
         system "cmake", *args
         system "make"
         system "make install"
-
-        system "mv", "#{prefix}/lib/release/Ogre.framework", "#{prefix}/lib"
     end
 end
