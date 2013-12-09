@@ -1,6 +1,6 @@
 require 'formula'
 
-class Bullet < Formula
+class OpenmwBullet < Formula
   homepage 'http://bulletphysics.org/wordpress/'
   url 'http://bullet.googlecode.com/files/bullet-2.82-r2704.tgz'
   version '2.82'
