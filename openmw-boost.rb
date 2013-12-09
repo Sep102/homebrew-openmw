@@ -14,8 +14,8 @@ end
 
 class OpenmwBoost < Formula
   homepage 'http://www.boost.org'
-  url 'http://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2'
-  sha1 'cef9a0cc7084b1d639e06cd3bc34e4251524c840'
+  url 'http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.tar.gz/download'
+  sha1 '61ed0e57d3c7c8985805bb0682de3f4c65f4b6e5'
 
   head 'http://svn.boost.org/svn/boost/trunk'
 
