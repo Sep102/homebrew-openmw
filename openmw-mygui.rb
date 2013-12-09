@@ -4,6 +4,7 @@ class OpenmwMygui < Formula
 
     homepage 'http://mygui.info'
     url 'http://sourceforge.net/projects/my-gui/files/MyGUI/MyGUI_3.2.0/MyGUI_3.2.0.zip/download'
+    sha1 'a9cc2424d5f4bacbd454631166b2452236c9517b'
     version '3.2.0'
 
     depends_on 'cmake' => :build
