@@ -10,6 +10,7 @@ class OpenmwFfmpeg < Formula
 
   def install
     args = ["--prefix=#{prefix}",
+            "--disable-ffmpeg",
             "--disable-ffplay",
             "--disable-ffprobe",
             "--disable-ffserver",
