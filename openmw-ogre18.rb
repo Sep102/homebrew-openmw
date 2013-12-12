@@ -3,7 +3,8 @@ require 'formula'
 class OpenmwOgre18 < Formula
 
     homepage 'http://www.ogre3d.org'
-    url 'https://bitbucket.org/sinbad/ogre', :using => :hg, :tag => 'v1-8-1'
+    url 'https://bitbucket.org/sinbad/ogre/get/v1-8-1.tar.bz2'
+    sha1 'c3f660c73e4ea8cf95fde47986692526be37a9da'
     version '1.8.1'
 
     depends_on 'cmake' => :build
