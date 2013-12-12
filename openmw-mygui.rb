@@ -19,7 +19,7 @@ class OpenmwMygui < Formula
 
         resource('dependencies').stage do
             system "rm", "-rf", "Dependencies/include/boost"
-            system "rm", "-rf", "Dependencies/lib/libboost*"
+            system "rm", "-rf", "Dependencies/include/OIS"
 
             buildpath.install Dir['Dependencies']
         end
