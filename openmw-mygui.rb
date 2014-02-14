@@ -33,6 +33,7 @@ class OpenmwMygui < Formula
         args << "-DCMAKE_C_FLAGS=-mmacosx-version-min=10.6"
         args << "-DCMAKE_CXX_FLAGS=-mmacosx-version-min=10.6"
         args << "-DCMAKE_SHARED_LINKER_FLAGS=-mmacosx-version-min=10.6"
+        args << "-DCMAKE_FRAMEWORK_PATH=#{HOMEBREW_PREFIX}/lib/Release"
         args << "-DMYGUI_BUILD_TOOLS=FALSE"
         args << "-DMYGUI_BUILD_DEMOS=FALSE"
         args << "-DMYGUI_BUILD_PLUGINS=FALSE"
