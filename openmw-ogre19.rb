@@ -16,10 +16,7 @@ class OpenmwOgre19 < Formula
     end
 
     def patches
-        # Fix frameworks install name
-        "https://gist.github.com/corristo/8982334/raw/9916b960561bc869bb8ced277e1b62098cb7b5bd/ogre19-install-name-fix.diff"
-        # Fix missing framework headers
-        "https://gist.github.com/corristo/8982334/raw/492d351323318721a882198e9c8927cca8a2e35e/ogre19-fix-framework-headers.diff"
+        DATA
     end
 
     def install
@@ -35,6 +32,7 @@ class OpenmwOgre19 < Formula
 
         args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
         args << "-DOGRE_BUILD_SAMPLES=FALSE"
+        args << "-DOGRE_BUILD_TOOLS=FALSE"
         args << "-DCMAKE_BUILD_TYPE=Release"
         args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
         args << "-DCMAKE_CXX_COMPILER=#{ENV.cxx}"
@@ -47,3 +45,33 @@ class OpenmwOgre19 < Formula
         system "make install"
     end
 end
+
+__END__
+diff --git a/OgreMain/CMakeLists.txt b/OgreMain/CMakeLists.txt
+--- a/OgreMain/CMakeLists.txt
++++ b/OgreMain/CMakeLists.txt
+@@ -302,7 +302,11 @@
+         LINK_FLAGS "-framework IOKit -framework Cocoa -framework Carbon -framework OpenGL -framework CoreVideo"
+     )
+ 
+-    set(OGRE_OSX_BUILD_CONFIGURATION "$(PLATFORM_NAME)/$(CONFIGURATION)")
++    if(CMAKE_GENERATOR STREQUAL "Xcode")
++      set(OGRE_OSX_BUILD_CONFIGURATION "$(PLATFORM_NAME)/$(CONFIGURATION)")
++    else()
++      set(OGRE_OSX_BUILD_CONFIGURATION "${PLATFORM_NAME}")
++    endif()
+   
+    add_custom_command(TARGET OgreMain POST_BUILD
+        COMMAND mkdir ARGS -p ${OGRE_BINARY_DIR}/lib/${OGRE_OSX_BUILD_CONFIGURATION}/Ogre.framework/Headers/Threading
+diff --git a/CMake/Utils/OgreConfigTargets.cmake b/CMake/Utils/OgreConfigTargets.cmake
+--- a/CMake/Utils/OgreConfigTargets.cmake
++++ b/CMake/Utils/OgreConfigTargets.cmake
+@@ -257,7 +257,7 @@
+       # Set the INSTALL_PATH so that frameworks can be installed in the application package
+       set_target_properties(${LIBNAME}
+          PROPERTIES BUILD_WITH_INSTALL_RPATH 1
+-         INSTALL_NAME_DIR "@executable_path/../Frameworks"
++         INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/${OGRE_LIB_DIRECTORY}/${PLATFORM_NAME}/${CMAKE_BUILD_TYPE}"
+       )
+       set_target_properties(${LIBNAME} PROPERTIES PUBLIC_HEADER "${HEADER_FILES} ${PLATFORM_HEADERS}")
+       set_target_properties(${LIBNAME} PROPERTIES XCODE_ATTRIBUTE_GCC_PRECOMPILE_PREFIX_HEADER "YES")
