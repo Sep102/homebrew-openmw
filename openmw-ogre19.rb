@@ -1,18 +1,25 @@
 require 'formula'
 
-class OpenmwMygui < Formula
+class OpenmwOgre19 < Formula
 
-    homepage 'http://mygui.info'
-    url 'http://sourceforge.net/projects/my-gui/files/MyGUI/MyGUI_3.2.0/MyGUI_3.2.0.zip/download'
-    sha1 'a9cc2424d5f4bacbd454631166b2452236c9517b'
-    version '3.2.0'
+    homepage 'http://www.ogre3d.org'
+    url 'https://bitbucket.org/sinbad/ogre/get/v1-9-0.tar.bz2'
+    sha1 'a6afe1e2884160b9b4926de14cc20ddad090ee07'
+    version '1.9.0'
 
     depends_on 'cmake' => :build
-    depends_on 'openmw-ogre19'
+    depends_on 'openmw-boost' => "without-python"
 
     resource 'dependencies' do
         url 'https://sourceforge.net/projects/ogre/files/ogre-dependencies-mac/1.8/OgreDependencies_OSX_20120525.zip/download'
         sha1 '75f173994b25a22eeb3b782cdf17222b336b44f6'
+    end
+
+    def patches
+        # Fix frameworks install name
+        "https://gist.github.com/corristo/8982334/raw/9916b960561bc869bb8ced277e1b62098cb7b5bd/ogre19-install-name-fix.diff"
+        # Fix missing framework headers
+        "https://gist.github.com/corristo/8982334/raw/492d351323318721a882198e9c8927cca8a2e35e/ogre19-fix-framework-headers.diff"
     end
 
     def install
@@ -27,17 +34,13 @@ class OpenmwMygui < Formula
         args = []
 
         args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
+        args << "-DOGRE_BUILD_SAMPLES=FALSE"
         args << "-DCMAKE_BUILD_TYPE=Release"
         args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
         args << "-DCMAKE_CXX_COMPILER=#{ENV.cxx}"
         args << "-DCMAKE_C_FLAGS=-mmacosx-version-min=10.6"
         args << "-DCMAKE_CXX_FLAGS=-mmacosx-version-min=10.6"
         args << "-DCMAKE_SHARED_LINKER_FLAGS=-mmacosx-version-min=10.6"
-        args << "-DCMAKE_FRAMEWORK_PATH=#{HOMEBREW_PREFIX}/lib/macosx/Release"
-        args << "-DMYGUI_BUILD_TOOLS=FALSE"
-        args << "-DMYGUI_BUILD_DEMOS=FALSE"
-        args << "-DMYGUI_BUILD_PLUGINS=FALSE"
-        args << "-DMYGUI_DEPENDENCIES_DIR=Dependencies"
 
         system "cmake", *args
         system "make"
