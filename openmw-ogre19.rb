@@ -13,7 +13,7 @@ class OpenmwOgre19 < Formula
     end
 
     depends_on 'cmake' => :build
-    depends_on 'openmw-boost' => "without-python"
+    depends_on 'openmw-boost'
 
     resource 'dependencies' do
         url 'https://sourceforge.net/projects/ogre/files/ogre-dependencies-mac/1.8/OgreDependencies_OSX_20120525.zip/download'
