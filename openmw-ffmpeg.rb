@@ -5,6 +5,11 @@ class OpenmwFfmpeg < Formula
   url 'http://ffmpeg.org/releases/ffmpeg-1.2.4.tar.bz2'
   sha1 'ee73a05bde209fc23441c7e49767c1b7a4b6f124'
 
+  bottle do
+    root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
+    sha1 "c09516948c1622cd1f51f487bcee1a062700c704" => :mavericks
+  end
+
   depends_on 'pkg-config' => :build
   depends_on 'yasm' => :build
 

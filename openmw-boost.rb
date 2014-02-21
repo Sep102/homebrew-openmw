@@ -20,10 +20,10 @@ class OpenmwBoost < Formula
   head 'http://svn.boost.org/svn/boost/trunk'
 
   bottle do
+    root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
     cellar :any
-    sha1 'f4fc12094f9aa754cc964a42907e4e808de5a98f' => :mavericks
-    sha1 '2e4a8f3acb057d641f5eec4fec9c686f09a833db' => :mountain_lion
-    sha1 '62aef45efb9d4247b99c2bca04ec29ac898e940f' => :lion
+    revision 1
+    sha1 "89d3db74c9f8ce4d4dedce8fec3efbee3cc11769" => :mavericks
   end
 
   env :userpaths

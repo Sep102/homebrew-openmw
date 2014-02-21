@@ -7,6 +7,11 @@ class OpenmwBullet < Formula
   sha1 'a0867257b9b18e9829bbeb4c6c5872a5b29d1d33'
   head 'http://bullet.googlecode.com/svn/trunk/'
 
+  bottle do
+    root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
+    sha1 "063b011bc0d06d92ea20c82bc30615a78a248500" => :mavericks
+  end
+
   depends_on 'cmake' => :build
 
   option :universal

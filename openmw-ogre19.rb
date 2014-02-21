@@ -7,6 +7,11 @@ class OpenmwOgre19 < Formula
     sha1 'a6afe1e2884160b9b4926de14cc20ddad090ee07'
     version '1.9.0'
 
+    bottle do
+        root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
+        sha1 "40965abbd9e81d4ccb5cdc091c8a0d37eecdd08b" => :mavericks
+    end
+
     depends_on 'cmake' => :build
     depends_on 'openmw-boost' => "without-python"
 

@@ -7,6 +7,12 @@ class OpenmwMygui < Formula
     sha1 'a9cc2424d5f4bacbd454631166b2452236c9517b'
     version '3.2.0'
 
+    bottle do
+        root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
+        cellar :any
+        sha1 "7e5220758b7f7e4b0359508d7426f78da0fb291c" => :mavericks
+    end
+
     depends_on 'cmake' => :build
     depends_on 'openmw-ogre19'
 

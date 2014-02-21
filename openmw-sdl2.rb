@@ -5,6 +5,12 @@ class OpenmwSdl2 < Formula
   url 'http://libsdl.org/release/SDL2-2.0.1.tar.gz'
   sha1 'e40051311b648e4e60ed1683f62a948d93a0a49f'
 
+  bottle do
+    root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
+    cellar :any
+    sha1 "f2bcc44c8bf28e1b0e58af24034afa36e66a6a3e" => :mavericks
+  end
+
   head do
     url 'http://hg.libsdl.org/SDL', :using => :hg
 
