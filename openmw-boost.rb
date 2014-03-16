@@ -10,8 +10,8 @@ class OpenmwBoost < Formula
   bottle do
     root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
     cellar :any
-    revision 2
-    sha1 "5b6e3bd12b15d6124c7dad57e8ca8c221a027b03" => :mavericks
+    revision 3
+    sha1 "961d7bdd16724afc70413a12f7fe6dad5cf10986" => :mavericks
   end
 
   env :userpaths
@@ -28,6 +28,14 @@ class OpenmwBoost < Formula
   end
 
   odie 'boost: --with-c++11 has been renamed to --c++11' if build.with? 'c++11'
+
+  # Patches boost::atomic for LLVM 3.4 as it is used on OS X 10.9 with Xcode 5.1
+  def patches
+    { :p2 => [
+      "https://github.com/boostorg/atomic/commit/6bb71fdd.patch",
+      "https://github.com/boostorg/atomic/commit/e4bde20f.patch",
+    ]}
+  end
 
   fails_with :llvm do
     build 2335
