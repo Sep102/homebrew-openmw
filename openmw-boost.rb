@@ -10,8 +10,8 @@ class OpenmwBoost < Formula
   bottle do
     root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
     cellar :any
-    revision 3
-    sha1 "961d7bdd16724afc70413a12f7fe6dad5cf10986" => :mavericks
+    revision 4
+    sha1 "442ed358a503876565688165d8ac1c8c1d72ea7d" => :mavericks
   end
 
   env :userpaths
@@ -74,7 +74,7 @@ class OpenmwBoost < Formula
 
     # Force boost to compile using the appropriate GCC version
     open("user-config.jam", "a") do |file|
-      file.write "using darwin : : #{ENV.cxx} : <compileflags>-mmacosx-version-min=10.6 <linkflags>-mmacosx-version-min=10.6 ;\n"
+      file.write "using darwin : : #{ENV.cxx} : <compileflags>-mmacosx-version-min=10.7 <linkflags>-mmacosx-version-min=10.7 ;\n"
     end
 
     # we specify libdir too because the script is apparently broken
