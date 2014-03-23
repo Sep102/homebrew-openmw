@@ -9,11 +9,13 @@ class OpenmwBullet < Formula
 
   bottle do
     root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
-    sha1 "063b011bc0d06d92ea20c82bc30615a78a248500" => :mavericks
+    revision 1
+    sha1 "d82641a54c27af715023064b5a65f87bf45e1547" => :mavericks
   end
 
   depends_on 'cmake' => :build
 
+  option :cxx11
   option :universal
   option 'framework',        'Build Frameworks'
   option 'shared',           'Build shared libraries'
@@ -22,6 +24,8 @@ class OpenmwBullet < Formula
   option 'double-precision', 'Use double precision'
 
   def install
+    ENV.cxx11 if build.cxx11?
+
     args = []
 
     if build.include? "framework"
@@ -46,7 +50,8 @@ class OpenmwBullet < Formula
       args << "-DBUILD_EXTRAS=OFF"
     end
 
-    args <<"-DCMAKE_OSX_DEPLOYMENT_TARGET=10.6"
+    args <<"-DCMAKE_OSX_DEPLOYMENT_TARGET=10.7"
+    args <<"-DCMAKE_CXX_FLAGS='-stdlib=libc++ -std=c++11 -Wno-c++11-narrowing'" if build.cxx11?
 
     system "cmake", *args
     system "make"
