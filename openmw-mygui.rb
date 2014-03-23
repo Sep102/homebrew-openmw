@@ -54,7 +54,7 @@ class OpenmwMygui < Formula
     args << "-DCMAKE_BUILD_TYPE=Release"
     args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
     args << "-DCMAKE_CXX_COMPILER=#{ENV.cxx}"
-    args << "-DCMAKE_CXX_FLAGS='-stdlib=libc++ -std=c++11'"
+    args << "-DCMAKE_CXX_FLAGS='-stdlib=libc++ -std=c++11'" if build.cxx11?
     args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.7"
     args << "-DCMAKE_FRAMEWORK_PATH=#{HOMEBREW_PREFIX}/lib/macosx/Release"
     args << "-DMYGUI_BUILD_TOOLS=FALSE"
