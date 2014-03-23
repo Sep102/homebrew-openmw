@@ -10,15 +10,29 @@ class OpenmwMygui < Formula
   bottle do
     root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
     cellar :any
-    sha1 "7e5220758b7f7e4b0359508d7426f78da0fb291c" => :mavericks
+    revision 1
+    sha1 "d41116c8cc70226ab8659a8b6d36ea70050ed53a" => :mavericks
   end
 
-  depends_on 'cmake' => :build
-  depends_on 'openmw-ogre19'
+  option :cxx11
 
-  resource 'dependencies' do
-    url 'https://sourceforge.net/projects/ogre/files/ogre-dependencies-mac/1.8/OgreDependencies_OSX_20120525.zip/download'
-    sha1 '75f173994b25a22eeb3b782cdf17222b336b44f6'
+  depends_on 'cmake' => :build
+  if build.cxx11?
+    depends_on 'openmw-ogre19' => 'c++11'
+  else
+    depends_on 'openmw-ogre19'
+  end
+
+  if build.cxx11?
+    resource 'dependencies' do
+      url 'http://sourceforge.net/projects/ogre/files/ogre-dependencies-mac/1.9/OgreDependencies_OSX_libc%2B%2B_20130610.zip/download'
+      sha1 'a9cacb347b22cfdca82e8329771a7a0b27ca495c'
+    end
+  else
+    resource 'dependencies' do
+      url 'https://sourceforge.net/projects/ogre/files/ogre-dependencies-mac/1.8/OgreDependencies_OSX_20120525.zip/download'
+      sha1 '75f173994b25a22eeb3b782cdf17222b336b44f6'
+    end
   end
 
   def install
@@ -26,6 +40,10 @@ class OpenmwMygui < Formula
     resource('dependencies').stage do
       system "rm", "-rf", "Dependencies/include/boost"
       system "rm", "-rf", "Dependencies/include/OIS"
+      system "rm", "-rf", "Dependencies/lib/libboost_chrono.a"
+      system "rm", "-rf", "Dependencies/lib/libboost_date_time.a"
+      system "rm", "-rf", "Dependencies/lib/libboost_system.a"
+      system "rm", "-rf", "Dependencies/lib/libboost_thread.a"
 
       buildpath.install Dir['Dependencies']
     end
@@ -36,9 +54,8 @@ class OpenmwMygui < Formula
     args << "-DCMAKE_BUILD_TYPE=Release"
     args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
     args << "-DCMAKE_CXX_COMPILER=#{ENV.cxx}"
-    args << "-DCMAKE_C_FLAGS=-mmacosx-version-min=10.6"
-    args << "-DCMAKE_CXX_FLAGS=-mmacosx-version-min=10.6"
-    args << "-DCMAKE_SHARED_LINKER_FLAGS=-mmacosx-version-min=10.6"
+    args << "-DCMAKE_CXX_FLAGS='-stdlib=libc++ -std=c++11'"
+    args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.7"
     args << "-DCMAKE_FRAMEWORK_PATH=#{HOMEBREW_PREFIX}/lib/macosx/Release"
     args << "-DMYGUI_BUILD_TOOLS=FALSE"
     args << "-DMYGUI_BUILD_DEMOS=FALSE"
