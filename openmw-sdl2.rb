@@ -2,13 +2,13 @@ require 'formula'
 
 class OpenmwSdl2 < Formula
   homepage 'http://www.libsdl.org/'
-  url 'http://libsdl.org/release/SDL2-2.0.1.tar.gz'
-  sha1 'e40051311b648e4e60ed1683f62a948d93a0a49f'
+  url 'http://libsdl.org/release/SDL2-2.0.2.tar.gz'
+  sha1 '304c7cd3dddca98724a3e162f232a8a8f6e1ceb3'
 
   bottle do
     root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
     cellar :any
-    sha1 "f2bcc44c8bf28e1b0e58af24034afa36e66a6a3e" => :mavericks
+    sha1 "83f489d35151c4030e9ed8866741bc212024d19b" => :mavericks
   end
 
   head do
@@ -32,7 +32,7 @@ class OpenmwSdl2 < Formula
     system "./autogen.sh" if build.head?
 
     %w{ CFLAGS CXXFLAGS LDFLAGS OBJCFLAGS OBJCXXFLAGS }.each do |compiler_flag|
-      ENV.append compiler_flag, "-mmacosx-version-min=10.6"
+      ENV.append compiler_flag, "-mmacosx-version-min=10.7"
     end
 
     args = %W[--prefix=#{prefix}]
