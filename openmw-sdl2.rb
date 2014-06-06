@@ -2,21 +2,21 @@ require 'formula'
 
 class OpenmwSdl2 < Formula
   homepage 'http://www.libsdl.org/'
-  url 'http://libsdl.org/release/SDL2-2.0.1.tar.gz'
-  sha1 'e40051311b648e4e60ed1683f62a948d93a0a49f'
+  url 'http://libsdl.org/release/SDL2-2.0.3.tar.gz'
+  sha1 '21c45586a4e94d7622e371340edec5da40d06ecc'
 
   bottle do
     root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
     cellar :any
-    sha1 "f2bcc44c8bf28e1b0e58af24034afa36e66a6a3e" => :mavericks
+    sha1 "338914173be51ef17bfef13eccc2ef432426b5be" => :mavericks
   end
 
   head do
     url 'http://hg.libsdl.org/SDL', :using => :hg
 
-    depends_on :autoconf
-    depends_on :automake
-    depends_on :libtool
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   option :universal
@@ -44,7 +44,7 @@ class OpenmwSdl2 < Formula
     system "make install"
   end
 
-  def test
+  test do
     system "#{bin}/sdl2-config", "--version"
   end
 end
