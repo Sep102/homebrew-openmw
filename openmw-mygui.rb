@@ -3,14 +3,13 @@ require 'formula'
 class OpenmwMygui < Formula
 
     homepage 'http://mygui.info'
-    url 'http://sourceforge.net/projects/my-gui/files/MyGUI/MyGUI_3.2.0/MyGUI_3.2.0.zip/download'
-    sha1 'a9cc2424d5f4bacbd454631166b2452236c9517b'
-    version '3.2.0'
+    url 'https://github.com/MyGUI/mygui/archive/MyGUI3.2.1.zip'
+    sha1 'dbc2910861f747c1be46dbdb756320838720f855'
+    version '3.2.1'
 
     bottle do
-        root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
         cellar :any
-        sha1 "7e5220758b7f7e4b0359508d7426f78da0fb291c" => :mavericks
+        sha1 "524f739533e75d73e74b58c9aa98b39a248a5b76" => :mavericks
     end
 
     depends_on 'cmake' => :build
