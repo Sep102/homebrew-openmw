@@ -8,7 +8,7 @@ class OpenmwOgre19 < Formula
     version '1.9.0'
 
     bottle do
-        root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
+        root_url 'http://downloads.openmw.org/osx/bottles'
         sha1 "40965abbd9e81d4ccb5cdc091c8a0d37eecdd08b" => :mavericks
     end
 

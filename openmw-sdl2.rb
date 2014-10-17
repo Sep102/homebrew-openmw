@@ -6,7 +6,7 @@ class OpenmwSdl2 < Formula
   sha1 '21c45586a4e94d7622e371340edec5da40d06ecc'
 
   bottle do
-    root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
+    root_url 'http://downloads.openmw.org/osx/bottles'
     cellar :any
     sha1 "338914173be51ef17bfef13eccc2ef432426b5be" => :mavericks
   end

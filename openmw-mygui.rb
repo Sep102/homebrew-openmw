@@ -8,7 +8,7 @@ class OpenmwMygui < Formula
     version '3.2.1'
 
     bottle do
-        root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
+        root_url 'http://downloads.openmw.org/osx/bottles'
         cellar :any
         sha1 "524f739533e75d73e74b58c9aa98b39a248a5b76" => :mavericks
     end

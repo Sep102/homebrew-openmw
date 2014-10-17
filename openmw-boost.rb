@@ -8,7 +8,7 @@ class OpenmwBoost < Formula
   head 'http://svn.boost.org/svn/boost/trunk'
 
   bottle do
-    root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
+    root_url 'http://downloads.openmw.org/osx/bottles'
     cellar :any
     revision 3
     sha1 "961d7bdd16724afc70413a12f7fe6dad5cf10986" => :mavericks

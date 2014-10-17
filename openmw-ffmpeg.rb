@@ -6,7 +6,7 @@ class OpenmwFfmpeg < Formula
   sha1 'ee73a05bde209fc23441c7e49767c1b7a4b6f124'
 
   bottle do
-    root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
+    root_url 'http://downloads.openmw.org/osx/bottles'
     sha1 "c09516948c1622cd1f51f487bcee1a062700c704" => :mavericks
   end
 

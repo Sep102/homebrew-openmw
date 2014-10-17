@@ -8,7 +8,7 @@ class OpenmwBullet < Formula
   head 'http://bullet.googlecode.com/svn/trunk/'
 
   bottle do
-    root_url 'https://dl.dropboxusercontent.com/u/28481/openmw/bottles'
+    root_url 'http://downloads.openmw.org/osx/bottles'
     sha1 "063b011bc0d06d92ea20c82bc30615a78a248500" => :mavericks
   end
 
