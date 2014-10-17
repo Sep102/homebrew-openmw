@@ -10,7 +10,9 @@ class OpenmwMygui < Formula
     bottle do
         root_url 'http://downloads.openmw.org/osx/bottles'
         cellar :any
+        revision 1
         sha1 "524f739533e75d73e74b58c9aa98b39a248a5b76" => :mavericks
+        sha1 "30eec41c9c7b6ceae7756c7322a63241ed025ff5" => :yosemite
     end
 
     depends_on 'cmake' => :build
