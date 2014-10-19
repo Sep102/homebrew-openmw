@@ -9,7 +9,9 @@ class OpenmwOgre19 < Formula
 
     bottle do
         root_url 'http://downloads.openmw.org/osx/bottles'
+        revision 1
         sha1 "40965abbd9e81d4ccb5cdc091c8a0d37eecdd08b" => :mavericks
+        sha1 "8116ed2d46edf21e97a4537112fbb4be14870a4a" => :yosemite
     end
 
     depends_on 'cmake' => :build

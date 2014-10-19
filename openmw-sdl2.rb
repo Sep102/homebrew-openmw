@@ -8,7 +8,9 @@ class OpenmwSdl2 < Formula
   bottle do
     root_url 'http://downloads.openmw.org/osx/bottles'
     cellar :any
+    revision 1
     sha1 "338914173be51ef17bfef13eccc2ef432426b5be" => :mavericks
+    sha1 "fea1f82f3d997eb4b56eebfb5607499889b6e875" => :yosemite
   end
 
   head do

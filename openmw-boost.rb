@@ -10,8 +10,9 @@ class OpenmwBoost < Formula
   bottle do
     root_url 'http://downloads.openmw.org/osx/bottles'
     cellar :any
-    revision 3
+    revision 4
     sha1 "961d7bdd16724afc70413a12f7fe6dad5cf10986" => :mavericks
+    sha1 "5af9990f89ec64fe7ae26e429d1e2170cd56e2fc" => :yosemite
   end
 
   env :userpaths

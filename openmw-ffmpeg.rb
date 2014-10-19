@@ -7,7 +7,9 @@ class OpenmwFfmpeg < Formula
 
   bottle do
     root_url 'http://downloads.openmw.org/osx/bottles'
+    revision 1
     sha1 "c09516948c1622cd1f51f487bcee1a062700c704" => :mavericks
+    sha1 "90730ff96c4f40b811ff1dc8694053f9ec968d26" => :yosemite
   end
 
   depends_on 'pkg-config' => :build
