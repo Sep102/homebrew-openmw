@@ -46,6 +46,7 @@ class OpenmwBullet < Formula
       args << "-DBUILD_EXTRAS=OFF"
     end
 
+    args <<"-DCMAKE_OSX_SYSROOT=macosx10.9"
     args <<"-DCMAKE_OSX_DEPLOYMENT_TARGET=10.6"
 
     system "cmake", *args
