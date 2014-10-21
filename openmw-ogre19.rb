@@ -39,6 +39,7 @@ class OpenmwOgre19 < Formula
 
         args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
         args << "-DOGRE_BUILD_SAMPLES=FALSE"
+        args << "-DOGRE_INSTALL_SAMPLES=FALSE"
         args << "-DOGRE_BUILD_TOOLS=FALSE"
         args << "-DCMAKE_BUILD_TYPE=Release"
         args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
