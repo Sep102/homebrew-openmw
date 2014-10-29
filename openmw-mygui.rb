@@ -18,6 +18,7 @@ class OpenmwMygui < Formula
     keg_only "We prefer keg-only to avoid clashes with master repo formulae"
 
     depends_on 'cmake' => :build
+    depends_on 'pkgconfig' => :build
     depends_on 'openmw-ogre19'
 
     resource 'dependencies' do
