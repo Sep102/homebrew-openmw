@@ -14,6 +14,8 @@ class OpenmwBullet < Formula
     sha1 "ba0d84fe3a8f22138bbd407f119679cb1809c4cb" => :yosemite
   end
 
+  keg_only "We prefer keg-only to avoid clashes with master repo formulae"
+
   depends_on 'cmake' => :build
 
   option :universal

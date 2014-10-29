@@ -15,6 +15,8 @@ class OpenmwBoost < Formula
     sha1 "5af9990f89ec64fe7ae26e429d1e2170cd56e2fc" => :yosemite
   end
 
+  keg_only "We prefer keg-only to avoid clashes with master repo formulae"
+
   env :userpaths
 
   option 'with-icu', 'Build regexp engine with icu support'
@@ -67,7 +69,7 @@ class OpenmwBoost < Formula
     #   /usr/local/lib/libboost_regex-mt.dylib (compatibility version 0.0.0, current version 0.0.0)
     #   /usr/local/lib/libboost_filesystem-mt.dylib (compatibility version 0.0.0, current version 0.0.0)
     #   /usr/local/lib/libboost_system-mt.dylib (compatibility version 0.0.0, current version 0.0.0)
-    inreplace 'tools/build/v2/tools/darwin.jam', '-install_name "', "-install_name \"#{HOMEBREW_PREFIX}/lib/"
+    inreplace 'tools/build/v2/tools/darwin.jam', '-install_name "', "-install_name \"#{prefix}/lib/"
 
     # boost will try to use cc, even if we'd rather it use, say, gcc-4.2
     inreplace 'tools/build/v2/engine/build.sh', 'BOOST_JAM_CC=cc', "BOOST_JAM_CC=#{ENV.cc}"

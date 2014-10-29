@@ -15,6 +15,8 @@ class OpenmwMygui < Formula
         sha1 "30eec41c9c7b6ceae7756c7322a63241ed025ff5" => :yosemite
     end
 
+    keg_only "We prefer keg-only to avoid clashes with master repo formulae"
+
     depends_on 'cmake' => :build
     depends_on 'openmw-ogre19'
 

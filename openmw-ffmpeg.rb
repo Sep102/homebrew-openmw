@@ -12,6 +12,8 @@ class OpenmwFfmpeg < Formula
     sha1 "90730ff96c4f40b811ff1dc8694053f9ec968d26" => :yosemite
   end
 
+  keg_only "We prefer keg-only to avoid clashes with master repo formulae"
+
   depends_on 'pkg-config' => :build
   depends_on 'yasm' => :build
 

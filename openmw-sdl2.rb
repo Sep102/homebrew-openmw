@@ -13,6 +13,8 @@ class OpenmwSdl2 < Formula
     sha1 "fea1f82f3d997eb4b56eebfb5607499889b6e875" => :yosemite
   end
 
+  keg_only "We prefer keg-only to avoid clashes with master repo formulae"
+
   head do
     url 'http://hg.libsdl.org/SDL', :using => :hg
 
@@ -24,11 +26,6 @@ class OpenmwSdl2 < Formula
   option :universal
 
   def install
-    # we have to do this because most build scripts assume that all sdl modules
-    # are installed to the same prefix. Consequently SDL stuff cannot be
-    # keg-only but I doubt that will be needed.
-    inreplace %w[sdl2.pc.in sdl2-config.in], '@prefix@', HOMEBREW_PREFIX
-
     ENV.universal_binary if build.universal?
 
     system "./autogen.sh" if build.head?
