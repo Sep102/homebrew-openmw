@@ -95,3 +95,58 @@ diff --git a/CMake/Utils/OgreConfigTargets.cmake b/CMake/Utils/OgreConfigTargets
        set_target_properties(${LIBNAME} PROPERTIES XCODE_ATTRIBUTE_GCC_PRECOMPILE_PREFIX_HEADER "YES")
        set_target_properties(${LIBNAME} PROPERTIES XCODE_ATTRIBUTE_GCC_PREFIX_HEADER "${OGRE_SOURCE_DIR}/OgreMain/include/OgreStableHeaders.h")
        set_target_properties(${LIBNAME} PROPERTIES RESOURCE "${RESOURCE_FILES}")
+diff --git a/RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm b/RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm
+--- a/RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm
++++ b/RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm
+@@ -282,6 +282,7 @@
+             }
+ 
+             mWindow = [mView window];
++            mIsExternal = true;
+ 
+             // Add our window to the window event listener class
+             WindowEventUtilities::_addRenderWindow(this);
+diff --git a/RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm b/RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm
+--- a/RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm
++++ b/RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm
+@@ -74,7 +74,7 @@
+ 
+         destroy();
+ 
+-        if(mWindow)
++        if(mWindow && !mIsExternal)
+         {
+             [mWindow release];
+             mWindow = nil;
+@@ -375,7 +375,8 @@
+ 
+             if(mWindow)
+             {
+-                [mWindow performClose:nil];
++                if(!mIsExternal)
++                    [mWindow performClose:nil];
+ 
+                 if(mGLPixelFormat)
+                 {
+diff --git a/RenderSystems/GL3Plus/src/OSX/OgreOSXCocoaWindow.mm b/RenderSystems/GL3Plus/src/OSX/OgreOSXCocoaWindow.mm
+--- a/RenderSystems/GL3Plus/src/OSX/OgreOSXCocoaWindow.mm
++++ b/RenderSystems/GL3Plus/src/OSX/OgreOSXCocoaWindow.mm
+@@ -71,7 +71,7 @@
+ 
+         destroy();
+ 
+-        if(mWindow)
++        if(mWindow && !mIsExternal)
+         {
+             [mWindow release];
+             mWindow = nil;
+@@ -377,7 +377,8 @@
+ 
+             if(mWindow)
+             {
+-                [mWindow performClose:nil];
++                if(!mIsExternal)
++                    [mWindow performClose:nil];
+ 
+                 if(mGLPixelFormat)
+                 {
