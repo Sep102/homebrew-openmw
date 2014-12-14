@@ -12,7 +12,7 @@ class OpenmwBoost < Formula
     cellar :any
     revision 4
     sha1 "961d7bdd16724afc70413a12f7fe6dad5cf10986" => :mavericks
-    sha1 "5af9990f89ec64fe7ae26e429d1e2170cd56e2fc" => :yosemite
+    sha1 "6b7de4473e85f52edaa5387523a5c0bdee4e8f36" => :yosemite
   end
 
   env :userpaths
