@@ -9,9 +9,9 @@ class OpenmwOgre19 < Formula
 
     bottle do
         root_url 'http://downloads.openmw.org/osx/bottles'
-        revision 2
-        sha1 "2ca3a4127a1aa6addd003df1659069d3c2a77853" => :yosemite
+        revision 3
         sha1 "3a0882f5180df7a9f82df981cbbaebae90e37879" => :mavericks
+        sha1 "58c74ac676178cbd5fc101777e302e0d93fc922d" => :yosemite
     end
 
     keg_only "We prefer keg-only to avoid clashes with master repo formulae"
@@ -63,14 +63,14 @@ diff --git a/OgreMain/CMakeLists.txt b/OgreMain/CMakeLists.txt
 @@ -302,7 +302,11 @@
          LINK_FLAGS "-framework IOKit -framework Cocoa -framework Carbon -framework OpenGL -framework CoreVideo"
      )
- 
+
 -    set(OGRE_OSX_BUILD_CONFIGURATION "$(PLATFORM_NAME)/$(CONFIGURATION)")
 +    if(CMAKE_GENERATOR STREQUAL "Xcode")
 +      set(OGRE_OSX_BUILD_CONFIGURATION "$(PLATFORM_NAME)/$(CONFIGURATION)")
 +    else()
 +      set(OGRE_OSX_BUILD_CONFIGURATION "${PLATFORM_NAME}")
 +    endif()
-   
+
     add_custom_command(TARGET OgreMain POST_BUILD
         COMMAND mkdir ARGS -p ${OGRE_BINARY_DIR}/lib/${OGRE_OSX_BUILD_CONFIGURATION}/Ogre.framework/Headers/Threading
 diff --git a/CMake/Utils/OgreConfigTargets.cmake b/CMake/Utils/OgreConfigTargets.cmake

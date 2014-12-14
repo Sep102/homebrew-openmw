@@ -10,9 +10,9 @@ class OpenmwBoost < Formula
   bottle do
     root_url 'http://downloads.openmw.org/osx/bottles'
     cellar :any
-    revision 4
+    revision 5
     sha1 "961d7bdd16724afc70413a12f7fe6dad5cf10986" => :mavericks
-    sha1 "5af9990f89ec64fe7ae26e429d1e2170cd56e2fc" => :yosemite
+    sha1 "dd0b2cdc5fb606e71f7dd3c36f83a5f089e54885" => :yosemite
   end
 
   keg_only "We prefer keg-only to avoid clashes with master repo formulae"

@@ -8,9 +8,9 @@ class OpenmwSdl2 < Formula
   bottle do
     root_url 'http://downloads.openmw.org/osx/bottles'
     cellar :any
-    revision 1
+    revision 2
     sha1 "338914173be51ef17bfef13eccc2ef432426b5be" => :mavericks
-    sha1 "fea1f82f3d997eb4b56eebfb5607499889b6e875" => :yosemite
+    sha1 "8eb98e8136b0fc0066695ee3bb84b8f2d5b6d89c" => :yosemite
   end
 
   keg_only "We prefer keg-only to avoid clashes with master repo formulae"

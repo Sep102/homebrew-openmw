@@ -7,9 +7,9 @@ class OpenmwFfmpeg < Formula
 
   bottle do
     root_url 'http://downloads.openmw.org/osx/bottles'
-    revision 1
+    revision 2
     sha1 "c09516948c1622cd1f51f487bcee1a062700c704" => :mavericks
-    sha1 "90730ff96c4f40b811ff1dc8694053f9ec968d26" => :yosemite
+    sha1 "6489562116fe62232fcaab45d5fa75feda05303a" => :yosemite
   end
 
   keg_only "We prefer keg-only to avoid clashes with master repo formulae"

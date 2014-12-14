@@ -9,9 +9,9 @@ class OpenmwBullet < Formula
 
   bottle do
     root_url 'http://downloads.openmw.org/osx/bottles'
-    revision 1
+    revision 2
     sha1 "063b011bc0d06d92ea20c82bc30615a78a248500" => :mavericks
-    sha1 "ba0d84fe3a8f22138bbd407f119679cb1809c4cb" => :yosemite
+    sha1 "a46b78a8399335b1f90877549986762940ab27bb" => :yosemite
   end
 
   keg_only "We prefer keg-only to avoid clashes with master repo formulae"
