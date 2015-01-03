@@ -19,8 +19,8 @@ class OpenmwQt < Formula
   bottle do
     root_url 'http://downloads.openmw.org/osx/bottles'
     revision 6
-    sha1 "bedfe4e950676a85f9653732d33767fbcce45da5" => :yosemite
-    sha1 "8ee072473ababd49fe85bc6f9bf5ddcdafea8c26" => :mavericks
+    sha1 "b2bdafc609cf373b2da74562e78db643487899ec" => :yosemite
+    sha1 "dc8bf1cc3cd68f5f43f8ef61d1af270c680cf822" => :mavericks
   end
 
   head "https://gitorious.org/qt/qt.git", :branch => "4.8"
