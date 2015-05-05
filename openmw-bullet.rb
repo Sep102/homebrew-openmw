@@ -2,16 +2,14 @@ require 'formula'
 
 class OpenmwBullet < Formula
   homepage 'http://bulletphysics.org/wordpress/'
-  url 'http://bullet.googlecode.com/files/bullet-2.82-r2704.tgz'
-  version '2.82'
-  sha1 'a0867257b9b18e9829bbeb4c6c5872a5b29d1d33'
+  url 'https://github.com/bulletphysics/bullet3/archive/2.83.tar.gz'
+  version '2.83'
+  sha1 'd98adad90489ce8c4c7a87dab7a1182213265d18'
   head 'http://bullet.googlecode.com/svn/trunk/'
 
   bottle do
     root_url 'http://downloads.openmw.org/osx/bottles'
-    revision 1
-    sha1 "063b011bc0d06d92ea20c82bc30615a78a248500" => :mavericks
-    sha1 "2071e49debf2db12d19a6a6454437fa68c22a529" => :yosemite
+    sha256 "4a29e222c33bcc816c77d4cfb77ef35fce5406ca8882c62bca14197106d7159f" => :yosemite
   end
 
   depends_on 'cmake' => :build
