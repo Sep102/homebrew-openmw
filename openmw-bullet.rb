@@ -10,6 +10,7 @@ class OpenmwBullet < Formula
   bottle do
     root_url 'http://downloads.openmw.org/osx/bottles'
     sha256 "4a29e222c33bcc816c77d4cfb77ef35fce5406ca8882c62bca14197106d7159f" => :yosemite
+    sha256 "c782bd7fcec7ed3cd8d3e7dd187d9b1cfec066dd7ee88ebd3a5675ed1fba5565" => :mavericks
   end
 
   depends_on 'cmake' => :build
