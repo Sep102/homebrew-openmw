@@ -2,7 +2,7 @@ class OpenmwOpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "http://www.openscenegraph.org/projects/osg"
   url "http://trac.openscenegraph.org/downloads/developer_releases/OpenSceneGraph-3.2.0.zip"
-  sha1 'ceca56e58e9ba245d5f9d0661352ddf405a7cb105341a122c5541b69c0ce032e'
+  sha256 'ceca56e58e9ba245d5f9d0661352ddf405a7cb105341a122c5541b69c0ce032e'
   revision 1
 
   head "http://www.openscenegraph.org/svn/osg/OpenSceneGraph/trunk/"
